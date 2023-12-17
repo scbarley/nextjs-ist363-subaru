@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Heading from './Heading';
 import Image from 'next/image';
 import { motion } from "framer-motion"; 
+import Paragraph from "./Paragraph";
 import styles from './grid.module.scss';
 
 const Grid = ({ items }) => {
@@ -36,10 +38,18 @@ const Grid = ({ items }) => {
                     height={trimLevels[0].images.thumbnail.node.mediaDetails.height}
                 />
             }
-            <h3>{title}</h3>
-            <p>
+            <Heading 
+                level={3} 
+                color="black"
+            >
+                {title}
+            </Heading>
+            <Paragraph>
+                starting at 1000000000
+            </Paragraph>
+            <Paragraph>
                 <Link href={`/vehicles/${slug}`}>Learn more</Link>
-            </p>
+            </Paragraph>
         </motion.article>
     })}
     </motion.section>
