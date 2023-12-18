@@ -1,0 +1,42 @@
+@use '../sass/abstracts/mixins';
+
+.footer {
+    background-color: #CCCCCC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    ul {
+        background-color: transparent;
+        width: 3rem;
+        height: 3rem;
+        border: 0;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 1.5rem;
+            height: auto
+        }
+    }
+    p {
+        font-size: .75rem;
+    }
+    @include mixins.breakpoint(tablet) {
+        h2 { font-size: 1.75rem;}
+        ul { img { width: 1.75rem; height: auto;}}
+        p { font-size: 1rem;}
+    }
+    @include mixins.breakpoint(laptop) {
+        h2 { font-size: 2rem;}
+        ul { img { width: 2rem; height: auto;}}
+        p { font-size: 1.25rem;}
+    }
+}
