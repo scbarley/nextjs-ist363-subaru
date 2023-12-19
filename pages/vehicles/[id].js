@@ -1,6 +1,7 @@
+import Heading from '../../components/Heading';
 import Image from 'next/image';
-
 import Layout from '../../components/Layout';
+import Showcase from '../../components/Showcase';
 import { getVehicleBySlug, getAllVehicleSlugs } from '../../lib/api';
 
 //WATERFALL
@@ -32,17 +33,18 @@ export async function getStaticProps ({ params }) {
 };
 // 3. page component
 const SingleVehiclePage = ({ vehicleData }) => {
-    const { title, slug, featuredImage } = vehicleData;
+    const { title, slug, featuredImage, vehicleInformation } = vehicleData;
+    const { headline } = vehicleInformation.showcase
     return <Layout>
-        <h1>{title}</h1>
-        {featuredImage && 
-            <Image 
-                src={featuredImage.node.sourceUrl}
-                alt={featuredImage.node.altText}
-                width={featuredImage.node.mediaDetails.width}
-                height={featuredImage.node.mediaDetails.height}
-            />
-        }
+        <Showcase 
+            subtitle={title}
+            title={headline}
+            featuredImage={featuredImage}
+        />
+        <div id="main-content">
+            Main content will go jere
+        </div>
+       
     </Layout>
 };
 export default SingleVehiclePage;
