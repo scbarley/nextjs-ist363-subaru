@@ -5,6 +5,17 @@ import { motion } from "framer-motion";
 import Paragraph from "./Paragraph";
 import styles from './grid.module.scss';
 
+
+const convertPriceToFormattedString = (price) => {
+    //turn integer 22995 to string 22,995
+    let priceArray = price.toString().split('')
+    //turn interger into array of singe digits [2,2,9,9,5] -> [2,2,,,9,9,5]
+    for (let i = priceArray.length - 3; i>0; i -= 3) {
+        priceArray.splice(i, 0, ',');
+    }
+    return '$' + priceArray.join(''); //-> $22,995
+}
+
 const Grid = ({ items }) => {
     const sectionVariants={
         closed: {opacity: 0},
@@ -28,6 +39,7 @@ const Grid = ({ items }) => {
             return <motion.article 
                 variants={articleVariants}
                 key={index}
+                className={styles.grid__item}
             >
 
             {trimLevels && trimLevels[0].images.thumbnail && 
@@ -44,14 +56,18 @@ const Grid = ({ items }) => {
             >
                 {title}
             </Heading>
-            <Paragraph>
-                starting at 1000000000
-            </Paragraph>
-            <Paragraph>
-                <Link href={`/vehicles/${slug}`}>Learn more</Link>
-            </Paragraph>
+            {trimLevels[0].msrp &&
+                <Paragraph>
+                    Starting at {convertPriceToFormattedString(trimLevels[0].msrp)}
+                </Paragraph>
+            }
+                <Paragraph>
+                    <Link href={`/vehicles/${slug}`}>Learn more</Link>
+                </Paragraph>
+            
         </motion.article>
     })}
+    
     </motion.section>
 };
 export default Grid;

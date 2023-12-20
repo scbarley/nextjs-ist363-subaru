@@ -4,16 +4,16 @@ import Heading from '../components/Heading';
 import Paragraph from '../components/Paragraph';
 
 
-const contactPage = () => {
+const buildPricePage = () => {
     return <Layout>
         <Container>
             <Heading level={1} textAlign="center">
-                Hit us up
+                Build and price
             </Heading>
             <Paragraph>
-                You may use credit or debit, cash a check, and cash if youre baller.
+                Looking to buy a subaru or car or SUV? Customize and save today
             </Paragraph>
         </Container>
     </Layout>
 }
-export default contactPage;
+export default buildPricePage;

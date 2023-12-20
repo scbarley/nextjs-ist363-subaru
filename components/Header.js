@@ -6,7 +6,8 @@ import Container from './Container';
 import Logo from './Logo';
 import Nav from './Nav';
 import styles from './header.module.scss';
-import Row from './Row';
+import Row from './Row'; 
+import Link from 'next/link';
 
 const Header = () => {
     //state variable, setter function
@@ -14,7 +15,10 @@ const Header = () => {
     return <header className={styles.header}>
        <Container>
             <Row justifyContent="space-between">
-                <Logo />
+                <Link href="/">
+                    <Logo />    
+                </Link>
+                
                 <Nav.Desktop />
                 <ButtonUI 
                     icon="menu" 

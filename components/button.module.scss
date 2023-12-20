@@ -11,6 +11,7 @@
         background-color: vars.$color__primary;
     }
     &.secondary {
-        background-color: pink;
+        background-color: black;
+        border: 1px solid white;
     }
-}
+} 

@@ -1,5 +1,6 @@
 import ColorPicker from '../../components/ColorPicker';
 import Container from '../../components/Container';
+import Head from 'next/head';
 import Heading from '../../components/Heading';
 import Image from 'next/image';
 import Layout from '../../components/Layout';
@@ -44,6 +45,9 @@ const SingleVehiclePage = ({ vehicleData, drivingLocations }) => {
     const { headline } = vehicleInformation.showcase
     const { trimLevels, vehicleColors } = vehicleInformation;
     return <Layout>
+        <Head>
+            <title>{title} | Subaru USA </title>
+        </Head>
         <Showcase 
             subtitle={title}
             title={headline}
